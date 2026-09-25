@@ -56,16 +56,16 @@ export const FinalArchitecture: React.FC<FinalArchitectureProps> = ({
         {/* Master Comprehensive 2D SVG Schematic with Strict Orthogonal Alignment */}
         <svg viewBox="0 0 1140 880" width="100%" height="100%" style={{ minWidth: '920px', display: 'block', userSelect: 'none' }}>
           <defs>
-            <marker id="final-arrow-cyan" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <marker id="final-arrow-cyan" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
               <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--signal-cyan)" />
             </marker>
-            <marker id="final-arrow-blue" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <marker id="final-arrow-blue" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
               <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--signal-blue)" />
             </marker>
-            <marker id="final-arrow-green" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <marker id="final-arrow-green" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
               <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--signal-green)" />
             </marker>
-            <marker id="final-arrow-amber" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <marker id="final-arrow-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
               <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--signal-amber)" />
             </marker>
           </defs>
@@ -128,11 +128,11 @@ export const FinalArchitecture: React.FC<FinalArchitectureProps> = ({
           <path d="M 570 210 L 570 265" fill="none" stroke="var(--signal-cyan)" strokeWidth="2" className={reducedMotion ? '' : 'flow-line-cyan'} markerEnd="url(#final-arrow-cyan)" />
           <text x="585" y="240" fill="var(--signal-cyan)" fontSize="8" fontFamily="var(--font-mono)">s[n]+v[n]</text>
 
-          {/* Parallel Protected Speech Path: Continuous straight line at X=900 down to Level 5 */}
+          {/* Parallel Protected Speech Path: Continuous strictly centered vertical axis at X=900 */}
           <path d="M 900 210 L 900 515" fill="none" stroke="var(--signal-green)" strokeWidth="2.5" className={reducedMotion ? '' : 'flow-line-green'} markerEnd="url(#final-arrow-green)" />
-          <g transform="translate(915, 340)">
-            <rect width="185" height="22" rx="3" fill="#081812" stroke="var(--signal-green)" strokeWidth="1" />
-            <text x="92" y="15" fill="var(--signal-green)" fontSize="8" fontFamily="var(--font-mono)" fontWeight="700" textAnchor="middle">
+          <g transform="translate(800, 342)">
+            <rect width="200" height="28" rx="4" fill="#061610" stroke="var(--signal-green)" strokeWidth="1.4" />
+            <text x="100" y="18" fill="var(--signal-green)" fontSize="8.5" fontFamily="var(--font-mono)" fontWeight="800" textAnchor="middle">
               PARALLEL PROTECTED SPEECH PATH
             </text>
           </g>
