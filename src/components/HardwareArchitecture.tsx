@@ -138,14 +138,14 @@ export const HardwareArchitecture: React.FC<HardwareArchitectureProps> = ({
 
           {/* Line 2: Reference Mic -> Codec CH1 */}
           <path
-            d="M 195 169 L 260 169"
+            d="M 195 169 L 225 169 L 225 125 L 260 125"
             fill="none"
             stroke="var(--signal-cyan)"
             strokeWidth="1.8"
             className={reducedMotion ? '' : 'flow-line-cyan'}
             markerEnd="url(#hw-arrow-cyan)"
           />
-          <text x="227" y="163" fill="var(--signal-cyan)" fontSize="7.5" fontFamily="var(--font-mono)" textAnchor="middle">d(t) Ref</text>
+          <text x="215" y="163" fill="var(--signal-cyan)" fontSize="7.5" fontFamily="var(--font-mono)" textAnchor="end">d(t) Ref</text>
 
           {/* ========================================================================= */}
           {/* SECTION 2: AUDIO CODEC (I2S ADC/DAC) (Col 2: X=260..445, Y=45..275)      */}
@@ -162,42 +162,54 @@ export const HardwareArchitecture: React.FC<HardwareArchitectureProps> = ({
             {/* Block 1: CH 0/1 ADCs */}
             <g transform="translate(10, 38)">
               <rect width="165" height="52" rx="2" fill="var(--bg-surface)" stroke="var(--border-default)" />
-              <text x="8" y="16" fill="var(--signal-cyan)" fontSize="8.5" fontFamily="var(--font-mono)" fontWeight="700">CH 0/1: MIC ADCs (16kHz/16-bit)</text>
-              <text x="8" y="30" fill="var(--text-secondary)" fontSize="8.5">Synchronous Sampling &bull; 98 dB SNR</text>
-              <text x="8" y="43" fill="var(--text-muted)" fontSize="8">Anti-Aliasing Sinc5 Filter</text>
+              <text x="8" y="15" fill="var(--signal-cyan)" fontSize="8.5" fontFamily="var(--font-mono)" fontWeight="700">CH 0/1: MIC ADCs (16kHz/16-bit)</text>
+              <text x="8" y="29" fill="var(--text-secondary)" fontSize="8.5">Synchronous Sampling &bull; 98 dB SNR</text>
+              <text x="8" y="42" fill="var(--text-muted)" fontSize="8">Anti-Aliasing Sinc5 Filter</text>
               {/* Terminals */}
-              <circle cx="0" cy="26" r="3" fill="var(--signal-cyan)" />
+              <circle cx="0" cy="26" r="3" fill="var(--signal-green)" />
+              <circle cx="0" cy="42" r="3" fill="var(--signal-cyan)" />
+              <text x="6" y="29" fill="var(--signal-green)" fontSize="6.5" fontFamily="var(--font-mono)">CH0</text>
+              <text x="6" y="45" fill="var(--signal-cyan)" fontSize="6.5" fontFamily="var(--font-mono)">CH1</text>
               <circle cx="165" cy="26" r="3" fill="var(--signal-cyan)" />
               <text x="155" y="22" fill="var(--signal-cyan)" fontSize="7" fontFamily="var(--font-mono)" textAnchor="end">[I2S_TX]</text>
             </g>
 
-            {/* Block 2: CH 2 ERROR MIC ADC */}
+            {/* Block 2: DAC OUT: ANTI-NOISE + SPEECH */}
             <g transform="translate(10, 98)">
-              <rect width="165" height="48" rx="2" fill="var(--bg-surface)" stroke="var(--border-default)" />
-              <text x="8" y="15" fill="var(--signal-cyan)" fontSize="8.5" fontFamily="var(--font-mono)" fontWeight="700">CH 2: ERROR MIC ADC</text>
-              <text x="8" y="29" fill="var(--text-secondary)" fontSize="8.5">Residual Acoustic Feedback Port</text>
-              <text x="8" y="41" fill="var(--text-muted)" fontSize="8">Low-Latency PGA (+18 dB)</text>
-              {/* Terminal */}
-              <circle cx="75" cy="48" r="3" fill="var(--signal-cyan)" />
-              <text x="75" y="44" fill="var(--signal-cyan)" fontSize="7" fontFamily="var(--font-mono)" textAnchor="middle">[ERR_IN]</text>
-            </g>
-
-            {/* Block 3: DAC OUT */}
-            <g transform="translate(10, 154)">
               <rect width="165" height="52" rx="2" fill="var(--bg-surface)" stroke="var(--signal-green)" strokeWidth="1.2" />
               <text x="8" y="15" fill="var(--signal-green)" fontSize="8.5" fontFamily="var(--font-mono)" fontWeight="700">DAC OUT: ANTI-NOISE + SPEECH</text>
               <text x="8" y="29" fill="var(--text-secondary)" fontSize="8.5">Low-Jitter Line-Level Reconstruction</text>
               <text x="8" y="42" fill="var(--signal-green)" fontSize="8" fontFamily="var(--font-mono)">-y(t) Anti-Noise + s(t) Speech</text>
               {/* Terminals */}
-              <circle cx="165" cy="26" r="3" fill="var(--signal-green)" />
-              <text x="155" y="22" fill="var(--signal-green)" fontSize="7" fontFamily="var(--font-mono)" textAnchor="end">[I2S_RX]</text>
-              <circle cx="120" cy="52" r="3" fill="var(--signal-green)" />
-              <text x="120" y="48" fill="var(--signal-green)" fontSize="7" fontFamily="var(--font-mono)" textAnchor="middle">[AOUT+]</text>
+              <circle cx="165" cy="37" r="3" fill="var(--signal-green)" />
+              <text x="155" y="33" fill="var(--signal-green)" fontSize="7" fontFamily="var(--font-mono)" textAnchor="end">[I2S_RX]</text>
+              <circle cx="165" cy="49" r="3" fill="var(--signal-green)" />
+              <text x="155" y="46" fill="var(--signal-green)" fontSize="6.5" fontFamily="var(--font-mono)" textAnchor="end">[AOUT+]</text>
             </g>
 
-            {/* Bottom 3.3V Power In Terminal */}
+            {/* Block 3: CH 2 ERROR MIC ADC */}
+            <g transform="translate(10, 158)">
+              <rect width="165" height="52" rx="2" fill="var(--bg-surface)" stroke="var(--border-default)" />
+              <text x="8" y="15" fill="var(--signal-cyan)" fontSize="8.5" fontFamily="var(--font-mono)" fontWeight="700">CH 2: ERROR MIC ADC</text>
+              <text x="8" y="29" fill="var(--text-secondary)" fontSize="8.5">Residual Acoustic Feedback Port</text>
+              <text x="8" y="42" fill="var(--text-muted)" fontSize="8">Low-Latency PGA (+18 dB)</text>
+              {/* Internal Terminal */}
+              <circle cx="130" cy="52" r="3" fill="var(--signal-cyan)" />
+              <text x="130" y="47" fill="var(--signal-cyan)" fontSize="7" fontFamily="var(--font-mono)" textAnchor="middle">[ERR_IN]</text>
+            </g>
+
+            {/* Internal trace from [ERR_IN] to bottom border */}
+            <line x1="140" y1="210" x2="140" y2="230" stroke="var(--signal-cyan)" strokeWidth="1.5" strokeDasharray="3 2" />
+
+            {/* Right Border Terminal for AOUT+ */}
+            <circle cx="185" cy="147" r="3" fill="var(--signal-green)" />
+
+            {/* Bottom Terminals */}
             <circle cx="35" cy="230" r="3" fill="var(--signal-cyan)" />
             <text x="35" y="224" fill="var(--signal-cyan)" fontSize="7" fontFamily="var(--font-mono)" textAnchor="middle">[3V3_VDD]</text>
+
+            <circle cx="140" cy="230" r="3.5" fill="var(--signal-cyan)" />
+            <text x="140" y="224" fill="var(--signal-cyan)" fontSize="7" fontFamily="var(--font-mono)" textAnchor="middle">[ERR_CH2]</text>
           </g>
 
           {/* ========================================================================= */}
@@ -270,8 +282,8 @@ export const HardwareArchitecture: React.FC<HardwareArchitectureProps> = ({
             {/* Terminals */}
             <circle cx="0" cy="64" r="3" fill="var(--signal-cyan)" />
             <circle cx="0" cy="135" r="3" fill="var(--signal-green)" />
-            <circle cx="112" cy="230" r="3" fill="var(--signal-amber)" />
-            <text x="112" y="224" fill="var(--signal-amber)" fontSize="7" fontFamily="var(--font-mono)" textAnchor="middle">[5V0_VCC]</text>
+            <circle cx="142" cy="230" r="3" fill="var(--signal-amber)" />
+            <text x="142" y="224" fill="var(--signal-amber)" fontSize="7" fontFamily="var(--font-mono)" textAnchor="middle">[5V0_VCC]</text>
           </g>
 
           {/* ========================================================================= */}
@@ -332,7 +344,7 @@ export const HardwareArchitecture: React.FC<HardwareArchitectureProps> = ({
           {/* Dedicated Channel at Y = 310 (Completely Clear of Highway 2 at Y=405)     */}
           {/* ========================================================================= */}
           <path
-            d="M 380 242 L 380 310 L 760 310 L 760 160 L 790 160"
+            d="M 445 192 L 475 192 L 475 310 L 760 310 L 760 160 L 790 160"
             fill="none"
             stroke="var(--signal-green)"
             strokeWidth="2"
@@ -340,10 +352,10 @@ export const HardwareArchitecture: React.FC<HardwareArchitectureProps> = ({
             markerEnd="url(#hw-arrow-green)"
           />
           {/* Pill Badge for Highway 1 */}
-          <g transform="translate(520, 301)">
-            <rect width="190" height="18" rx="3" fill="#081812" stroke="var(--signal-green)" strokeWidth="1" />
-            <text x="95" y="13" fill="var(--signal-green)" fontSize="8" fontFamily="var(--font-mono)" fontWeight="700" textAnchor="middle">
-              ANALOG LINE OUT: -y(t) + s(t)
+          <g transform="translate(488, 301)">
+            <rect width="150" height="18" rx="3" fill="#081812" stroke="var(--signal-green)" strokeWidth="1" />
+            <text x="75" y="13" fill="var(--signal-green)" fontSize="7.5" fontFamily="var(--font-mono)" fontWeight="700" textAnchor="middle">
+              ANALOG LINE: -y(t) + s(t)
             </text>
           </g>
 
@@ -379,7 +391,7 @@ export const HardwareArchitecture: React.FC<HardwareArchitectureProps> = ({
           {/* Dedicated Channel at Y = 405 (95 pixels below Highway 1 at Y=310)         */}
           {/* ========================================================================= */}
           <path
-            d="M 960 355 L 935 355 L 935 405 L 335 405 L 335 240"
+            d="M 960 355 L 935 355 L 935 405 L 400 405 L 400 275"
             fill="none"
             stroke="var(--signal-cyan)"
             strokeWidth="2"
@@ -420,8 +432,8 @@ export const HardwareArchitecture: React.FC<HardwareArchitectureProps> = ({
               <text x="8" y="47" fill="var(--text-muted)" fontSize="8.5">Ripple &lt; 10μV RMS &bull; 500mA</text>
               <text x="8" y="62" fill="var(--signal-cyan)" fontSize="8" fontFamily="var(--font-mono)">&rarr; Audio Codec &amp; Mic Bias</text>
               {/* Output pin */}
-              <circle cx="85" cy="0" r="3" fill="var(--signal-cyan)" />
-              <text x="85" y="-5" fill="var(--signal-cyan)" fontSize="7" fontFamily="var(--font-mono)" textAnchor="middle">[3V3_OUT]</text>
+              <circle cx="55" cy="0" r="3" fill="var(--signal-cyan)" />
+              <text x="55" y="-5" fill="var(--signal-cyan)" fontSize="7" fontFamily="var(--font-mono)" textAnchor="middle">[3V3_OUT]</text>
             </g>
 
             {/* Block 3: 5V Processor Rail (Directly beneath SoC Processor!) */}
@@ -440,10 +452,10 @@ export const HardwareArchitecture: React.FC<HardwareArchitectureProps> = ({
           {/* ========================================================================= */}
           {/* POWER DISTRIBUTION ROUTING WITH JUMPER BRIDGES                            */}
           {/* ========================================================================= */}
-          {/* 3.3V Power Line: from X=325, Y=460 straight up to Codec at Y=275          */}
-          {/* Crosses Highway 2 (at Y=405) with clean jumper bridge arc                 */}
+          {/* 3.3V Power Line: from X=295, Y=460 straight up to Codec at Y=275          */}
+          {/* Completely clear of Highway 2 (which terminates at X=400, 105px to the right) */}
           <path
-            d="M 325 460 L 325 412 A 6 6 0 0 1 325 398 L 325 275"
+            d="M 295 460 L 295 275"
             fill="none"
             stroke="var(--signal-cyan)"
             strokeWidth="1.8"
@@ -451,18 +463,18 @@ export const HardwareArchitecture: React.FC<HardwareArchitectureProps> = ({
           />
           {/* Branch to Mic Array */}
           <path
-            d="M 325 435 L 117 435 L 117 275"
+            d="M 295 435 L 117 435 L 117 275"
             fill="none"
             stroke="var(--signal-cyan)"
             strokeWidth="1.5"
             strokeDasharray="4 2"
           />
-          <text x="325" y="448" fill="var(--signal-cyan)" fontSize="7" fontFamily="var(--font-mono)" textAnchor="middle">+3.3V</text>
+          <text x="295" y="448" fill="var(--signal-cyan)" fontSize="7" fontFamily="var(--font-mono)" textAnchor="middle">+3.3V</text>
 
           {/* 5.0V Power Line: from X=652, Y=460 straight up to SoC at Y=275            */}
           {/* Crosses Highway 2 (at Y=405) and Highway 1 (at Y=310) with jumper arcs   */}
           <path
-            d="M 652 460 L 652 412 A 6 6 0 0 1 652 398 L 652 317 A 6 6 0 0 1 652 303 L 652 275"
+            d="M 652 460 L 652 412 A 7 7 0 0 1 652 398 L 652 317 A 7 7 0 0 1 652 303 L 652 275"
             fill="none"
             stroke="var(--signal-amber)"
             strokeWidth="2"
