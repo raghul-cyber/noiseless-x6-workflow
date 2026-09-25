@@ -1,0 +1,203 @@
+/* Technical Component and System Schematics Styling */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Background Subtle Technical Grid */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(22, 40, 43, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(22, 40, 43, 0.25) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Typography Utilities */
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-cyan {
+  color: var(--signal-cyan);
+}
+
+.text-green {
+  color: var(--signal-green);
+}
+
+.text-blue {
+  color: var(--signal-blue);
+}
+
+.text-amber {
+  color: var(--signal-amber);
+}
+
+/* Section Shell */
+.section-shell {
+  position: relative;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 80px 24px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.section-header {
+  margin-bottom: 36px;
+}
+
+.section-num {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--signal-cyan);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-title {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-heading);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.section-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  max-width: 850px;
+  line-height: 1.6;
+}
+
+/* Technical Panels */
+.tech-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  position: relative;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.tech-card:hover {
+  border-color: var(--border-highlight);
+}
+
+.tech-card-interactive {
+  cursor: pointer;
+}
+
+.tech-card-interactive:hover {
+  border-color: var(--signal-cyan);
+  background: var(--bg-surface-elevated);
+}
+
+/* Engineering Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.badge-target {
+  background: rgba(148, 163, 184, 0.12);
+  border: 1px dashed var(--evidence-target);
+  color: #cbd5e1;
+}
+
+.badge-sim {
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid var(--evidence-sim);
+  color: #7dd3fc;
+}
+
+.badge-measured {
+  background: rgba(52, 211, 153, 0.12);
+  border: 1px solid var(--evidence-measured);
+  color: #6ee7b7;
+}
+
+.badge-unbenchmarked {
+  background: rgba(100, 116, 139, 0.15);
+  border: 1px solid var(--evidence-unbench);
+  color: #94a3b8;
+}
+
+/* Status Indicators */
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-dot-active {
+  background: var(--signal-green);
+  box-shadow: 0 0 6px var(--signal-green);
+}
+
+.status-dot-warn {
+  background: var(--signal-amber);
+  box-shadow: 0 0 6px var(--signal-amber);
+}
+
+.status-dot-cyan {
+  background: var(--signal-cyan);
+  box-shadow: 0 0 6px var(--signal-cyan);
+}
+
+/* Interactive SVG Diagram Node Styles */
+.diag-node {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.diag-node:hover rect {
+  stroke: var(--signal-cyan) !important;
+  stroke-width: 2px !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .section-shell {
+    padding: 48px 16px;
+  }
+  .section-title {
+    font-size: 20px;
+  }
+}

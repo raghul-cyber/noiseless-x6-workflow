@@ -1,0 +1,126 @@
+/* Signal Flow and Engineering Keyframes */
+@keyframes flowDash {
+  from {
+    stroke-dashoffset: 48;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes reverseFlowDash {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 48;
+  }
+}
+
+@keyframes sweepScan {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(1000%);
+    opacity: 0;
+  }
+}
+
+@keyframes indicatorBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes impulseFlash {
+  0% {
+    background-color: rgba(245, 158, 11, 0.4);
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.6);
+  }
+  100% {
+    background-color: var(--bg-surface);
+    box-shadow: none;
+  }
+}
+
+@keyframes signalPacketTravel {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+/* Classes */
+.flow-line-cyan {
+  stroke-dasharray: 6 4;
+  animation: flowDash 1.4s linear infinite;
+}
+
+.flow-line-blue {
+  stroke-dasharray: 6 4;
+  animation: flowDash 1.6s linear infinite;
+}
+
+.flow-line-green {
+  stroke-dasharray: 6 4;
+  animation: flowDash 1.2s linear infinite;
+}
+
+.flow-line-amber {
+  stroke-dasharray: 6 4;
+  animation: flowDash 0.9s linear infinite;
+}
+
+.flow-line-reverse {
+  stroke-dasharray: 6 4;
+  animation: reverseFlowDash 1.4s linear infinite;
+}
+
+.indicator-active {
+  animation: indicatorBlink 1.8s ease-in-out infinite;
+}
+
+.impulse-active {
+  animation: impulseFlash 0.5s ease-out;
+}
+
+/* Reduced Motion Mode */
+@media (prefers-reduced-motion: reduce) {
+  .flow-line-cyan,
+  .flow-line-blue,
+  .flow-line-green,
+  .flow-line-amber,
+  .flow-line-reverse {
+    animation: none !important;
+    stroke-dasharray: none !important;
+  }
+
+  .indicator-active,
+  .impulse-active {
+    animation: none !important;
+  }
+
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
