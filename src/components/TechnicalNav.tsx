@@ -56,44 +56,52 @@ export const TechnicalNav: React.FC<TechnicalNavProps> = ({
       }}
     >
       {/* Brand & Project Identification */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-        <a href="#overview" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexShrink: 0, whiteSpace: 'nowrap' }}>
+        <a href="#overview" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0, whiteSpace: 'nowrap' }}>
           <div
             style={{
-              width: '28px',
-              height: '28px',
-              background: 'var(--bg-military-tint)',
-              border: '1px solid var(--signal-cyan)',
-              borderRadius: '2px',
+              width: '32px',
+              height: '32px',
+              background: '#ffffff',
+              border: '1px solid var(--border-highlight)',
+              borderRadius: '4px',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              padding: '2px',
+              boxShadow: '0 0 10px rgba(0, 229, 255, 0.25)',
+              flexShrink: 0
             }}
           >
-            <Compass size={16} color="var(--signal-cyan)" />
+            <img
+              src="/logo.png"
+              alt="NOISELESS-X6"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain',
+                display: 'block'
+              }}
+            />
           </div>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <span style={{ fontSize: '14px', fontWeight: 900, color: 'var(--text-heading)', letterSpacing: '0.04em' }}>
-                NOISELESS-X6
-              </span>
-              <span
-                className="font-mono text-cyan"
-                style={{
-                  fontSize: '10px',
-                  fontWeight: 700,
-                  background: 'rgba(0, 229, 255, 0.1)',
-                  padding: '1px 5px',
-                  borderRadius: '2px',
-                  border: '1px solid var(--border-highlight)'
-                }}
-              >
-                WORKFLOWS
-              </span>
-            </div>
-            <div className="font-mono text-muted" style={{ fontSize: '9px', letterSpacing: '0.05em' }}>
-              TECHNICAL SYSTEM VISUALIZATION & SIMULATION
-            </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap' }}>
+            <span style={{ fontSize: '15px', fontWeight: 900, color: 'var(--text-heading)', letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>
+              NOISELESS-X6
+            </span>
+            <span
+              className="font-mono text-cyan"
+              style={{
+                fontSize: '10px',
+                fontWeight: 700,
+                background: 'rgba(0, 229, 255, 0.1)',
+                padding: '2px 6px',
+                borderRadius: '2px',
+                border: '1px solid var(--border-highlight)',
+                whiteSpace: 'nowrap'
+              }}
+            >
+              WORKFLOWS
+            </span>
           </div>
         </a>
       </div>
@@ -103,7 +111,11 @@ export const TechnicalNav: React.FC<TechnicalNavProps> = ({
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '14px'
+          gap: '14px',
+          whiteSpace: 'nowrap',
+          flexShrink: 1,
+          overflowX: 'auto',
+          scrollbarWidth: 'none'
         }}
         className="desktop-nav"
       >
@@ -117,6 +129,7 @@ export const TechnicalNav: React.FC<TechnicalNavProps> = ({
               fontSize: '12px',
               fontWeight: 600,
               letterSpacing: '0.02em',
+              whiteSpace: 'nowrap',
               transition: 'color 0.15s ease'
             }}
             onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--signal-cyan)')}
@@ -128,7 +141,7 @@ export const TechnicalNav: React.FC<TechnicalNavProps> = ({
       </nav>
 
       {/* Live System State & Telemetry Header Bar */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexShrink: 0, whiteSpace: 'nowrap' }}>
         {/* System Active Pill */}
         <div
           style={{
@@ -138,19 +151,21 @@ export const TechnicalNav: React.FC<TechnicalNavProps> = ({
             background: 'var(--bg-surface-sunken)',
             border: '1px solid var(--border-default)',
             padding: '3px 10px',
-            borderRadius: '2px'
+            borderRadius: '2px',
+            whiteSpace: 'nowrap',
+            flexShrink: 0
           }}
         >
           <span className={`status-dot ${simState.isRunning ? 'status-dot-active' : 'status-dot-warn'}`} />
-          <span className="font-mono" style={{ fontSize: '10px', color: 'var(--text-primary)' }}>
+          <span className="font-mono" style={{ fontSize: '10px', color: 'var(--text-primary)', whiteSpace: 'nowrap' }}>
             {simState.isRunning ? 'SYS ACTIVE' : 'SYS PAUSED'}
           </span>
           <span className="font-mono text-muted" style={{ fontSize: '10px' }}>|</span>
-          <span className="font-mono text-cyan" style={{ fontSize: '10px' }}>
+          <span className="font-mono text-cyan" style={{ fontSize: '10px', whiteSpace: 'nowrap' }}>
             {simState.noiseType.toUpperCase()}
           </span>
           <span className="font-mono text-muted" style={{ fontSize: '10px' }}>|</span>
-          <span className="font-mono text-green" style={{ fontSize: '10px' }}>
+          <span className="font-mono text-green" style={{ fontSize: '10px', whiteSpace: 'nowrap' }}>
             {simState.ancActive ? `${simState.residualAttenuationDb.toFixed(1)} dB` : 'OFF'}
           </span>
         </div>
@@ -170,7 +185,9 @@ export const TechnicalNav: React.FC<TechnicalNavProps> = ({
             alignItems: 'center',
             gap: '4px',
             fontSize: '11px',
-            fontFamily: 'var(--font-mono)'
+            fontFamily: 'var(--font-mono)',
+            whiteSpace: 'nowrap',
+            flexShrink: 0
           }}
           aria-label="Toggle reduced motion"
         >
@@ -194,7 +211,9 @@ export const TechnicalNav: React.FC<TechnicalNavProps> = ({
             display: 'flex',
             alignItems: 'center',
             gap: '6px',
-            letterSpacing: '0.04em'
+            letterSpacing: '0.04em',
+            whiteSpace: 'nowrap',
+            flexShrink: 0
           }}
         >
           <Zap size={13} />

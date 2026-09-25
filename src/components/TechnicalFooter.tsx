@@ -22,17 +22,29 @@ export const TechnicalFooter: React.FC = () => {
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
               <div
                 style={{
-                  width: '26px',
-                  height: '26px',
-                  background: 'var(--bg-military-tint)',
-                  border: '1px solid var(--signal-cyan)',
-                  borderRadius: '2px',
+                  width: '32px',
+                  height: '32px',
+                  background: '#ffffff',
+                  border: '1px solid var(--border-highlight)',
+                  borderRadius: '4px',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center'
+                  justifyContent: 'center',
+                  padding: '2px',
+                  boxShadow: '0 0 10px rgba(0, 229, 255, 0.25)',
+                  flexShrink: 0
                 }}
               >
-                <Compass size={14} color="var(--signal-cyan)" />
+                <img
+                  src="/logo.png"
+                  alt="NOISELESS-X6 Logo"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'contain',
+                    display: 'block'
+                  }}
+                />
               </div>
               <span style={{ fontSize: '16px', fontWeight: 900, color: 'var(--text-heading)' }}>
                 NOISELESS-X6 <span className="text-cyan">WORKFLOWS</span>

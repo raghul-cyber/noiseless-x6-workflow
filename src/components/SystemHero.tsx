@@ -42,26 +42,55 @@ export const SystemHero: React.FC<SystemHeroProps> = ({
     <section id="overview" className="section-shell" style={{ paddingTop: '50px' }}>
       {/* Editorial System Header */}
       <div style={{ maxWidth: '980px', marginBottom: '40px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
-          <span className="badge badge-measured">System Architecture v2.4</span>
-          <span className="badge badge-sim">Real-Time Canvas Simulation</span>
-          <span className="font-mono text-muted" style={{ fontSize: '11px' }}>
-            DOC-REF: SIH26052-ENG-SPEC
-          </span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '16px', flexWrap: 'wrap' }}>
+          <div
+            style={{
+              width: '64px',
+              height: '64px',
+              borderRadius: '8px',
+              background: '#ffffff',
+              border: '2px solid var(--signal-cyan)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '3px',
+              boxShadow: '0 0 20px rgba(0, 229, 255, 0.3)',
+              flexShrink: 0
+            }}
+          >
+            <img
+              src="/logo.png"
+              alt="NOISELESS-X6 Insignia"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain',
+                display: 'block'
+              }}
+            />
+          </div>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', flexWrap: 'wrap' }}>
+              <span className="badge badge-measured">System Architecture v2.4</span>
+              <span className="badge badge-sim">Real-Time Canvas Simulation</span>
+              <span className="font-mono text-muted" style={{ fontSize: '11px' }}>
+                DOC-REF: SIH26052-ENG-SPEC
+              </span>
+            </div>
+            <h1
+              style={{
+                fontSize: 'clamp(32px, 5vw, 52px)',
+                fontWeight: 900,
+                lineHeight: 1.1,
+                letterSpacing: '-0.03em',
+                color: 'var(--text-heading)',
+                margin: 0
+              }}
+            >
+              NOISELESS-X6 <span className="text-cyan">WORKFLOWS</span>
+            </h1>
+          </div>
         </div>
-
-        <h1
-          style={{
-            fontSize: 'clamp(32px, 5vw, 52px)',
-            fontWeight: 900,
-            lineHeight: 1.1,
-            letterSpacing: '-0.03em',
-            color: 'var(--text-heading)',
-            marginBottom: '16px'
-          }}
-        >
-          NOISELESS-X6 <span className="text-cyan">WORKFLOWS</span>
-        </h1>
 
         <p
           className="font-mono"
