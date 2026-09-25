@@ -342,9 +342,9 @@ export const SystemHero: React.FC<SystemHeroProps> = ({
             className={reducedMotion ? '' : 'flow-line-reverse'}
             markerEnd="url(#hero-arrow-cyan)"
           />
-          <g transform="translate(630, 275)">
-            <rect width="140" height="22" rx="2" fill="var(--bg-surface-sunken)" stroke="var(--border-default)" />
-            <text x="70" y="15" fill="var(--signal-cyan)" fontSize="9" fontFamily="var(--font-mono)" textAnchor="middle">
+          <g transform="translate(595, 281)">
+            <rect width="210" height="22" rx="3" fill="var(--bg-surface-sunken)" stroke="var(--border-default)" />
+            <text x="105" y="15" fill="var(--signal-cyan)" fontSize="8.5" fontFamily="var(--font-mono)" textAnchor="middle">
               CLOSED-LOOP ADAPTIVE UPDATE e[n]
             </text>
           </g>
