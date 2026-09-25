@@ -132,9 +132,9 @@ export const SystemHero: React.FC<SystemHeroProps> = ({
               <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--signal-amber)" />
             </marker>
             <linearGradient id="flow-line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="var(--signal-cyan)" stop-opacity="0.4" />
-              <stop offset="50%" stop-color="var(--signal-cyan)" stop-opacity="1" />
-              <stop offset="100%" stop-color="var(--signal-cyan)" stop-opacity="0.4" />
+              <stop offset="0%" stopColor="var(--signal-cyan)" stopOpacity="0.4" />
+              <stop offset="50%" stopColor="var(--signal-cyan)" stopOpacity="1" />
+              <stop offset="100%" stopColor="var(--signal-cyan)" stopOpacity="0.4" />
             </linearGradient>
           </defs>
 
